@@ -12,5 +12,5 @@ spring:
     properties:
       hibernate:
         hbm2ddl:
-          auto: true
+          auto: update
         dialect: org.hibernate.dialect.MySQL5InnoDVDialect
