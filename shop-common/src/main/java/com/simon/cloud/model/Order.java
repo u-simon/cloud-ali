@@ -1,4 +1,4 @@
-package com.simon.model;
+package com.simon.cloud.model;
 
 import lombok.Data;
 
