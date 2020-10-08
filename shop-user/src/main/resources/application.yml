@@ -13,4 +13,4 @@ spring:
       hibernate:
         hbm2ddl:
           auto: update
-        dialect: org.hibernate.dialect.MySQL5InnoDVDialect
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect

@@ -1,6 +1,9 @@
 package com.simon.cloud.service.impl;
 
+import com.simon.cloud.dao.OrderDao;
+import com.simon.cloud.model.Order;
 import com.simon.cloud.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,4 +13,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class OrderServiceImpl implements OrderService {
+    @Autowired
+    OrderDao orderDao;
+
+    @Override
+    public void create(Order order) {
+        orderDao.save(order);
+    }
 }

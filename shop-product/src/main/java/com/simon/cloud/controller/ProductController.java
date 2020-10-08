@@ -17,6 +17,26 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    @RequestMapping("/api1/demo1")
+    public String demo1(){
+        return "demo";
+    }
+
+    @RequestMapping("/api1/demo2")
+    public String demo2(){
+        return "demo";
+    }
+
+    @RequestMapping("/api2/demo1")
+    public String demo3(){
+        return "demo";
+    }
+
+    @RequestMapping("/api2/demo2")
+    public String demo4(){
+        return "demo";
+    }
+
     @RequestMapping("/{pid}")
     public Product query(@PathVariable("pid") Integer pid) {
         log.info("接下来要进行{}号商品的查询", pid);

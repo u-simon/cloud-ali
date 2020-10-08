@@ -13,4 +13,21 @@ spring:
       hibernate:
         hbm2ddl:
           auto: update
-        dialect: org.hibernate.dialect.MySQL5InnoDVDialect
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        port: 9999 #和控制台交流的端口,随意指定一个未使用的端口即可
+        dashboard: localhost:8080 #指定控制台服务的地址
+
+service-product:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+
+feign:
+  sentinel:
+    enabled: true
