@@ -6,6 +6,7 @@ import com.simon.cloud.model.Product;
 import com.simon.cloud.service.OrderService;
 import com.simon.cloud.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -32,6 +33,9 @@ public class OrderController {
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    RocketMQTemplate rocketMQTemplate;
 
     @RequestMapping("/prod/{pid}")
     public Order order(@PathVariable("pid") Integer pid) {
@@ -64,6 +68,7 @@ public class OrderController {
         orderService.create(order);
         log.info("创建{}号商品的订单, 内容为:{}", pid, JSON.toJSONString(order));
 
+        rocketMQTemplate.convertAndSend("shop-order", order);
         return order;
     }
 
