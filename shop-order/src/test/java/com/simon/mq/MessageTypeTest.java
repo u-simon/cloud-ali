@@ -22,7 +22,7 @@ public class MessageTypeTest {
     RocketMQTemplate rocketMQTemplate;
 
     @Test
-    public void testSyncSend(){
+    public void testSyncSend() {
         SendResult result = rocketMQTemplate.syncSend("test-topic-1:sync", "这是一条同步消息");
         System.out.println(result);
     }
@@ -46,8 +46,14 @@ public class MessageTypeTest {
     }
 
     @Test
-    public void testOneWay(){
+    public void testOneWay() {
         rocketMQTemplate.sendOneWay("test-topic-1:oneway", "这是一条单项消息");
     }
 
+    @Test
+    public void testOneWayOrderly() {
+        for (int i = 0; i < 10; i++) {
+            rocketMQTemplate.sendOneWayOrderly("test-topic-1:oneway", "这是一条单项消息", "1234");
+        }
+    }
 }
