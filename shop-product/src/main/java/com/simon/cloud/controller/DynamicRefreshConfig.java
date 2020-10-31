@@ -18,6 +18,9 @@ public class DynamicRefreshConfig {
     @Value("${config.appName}")
     String appName;
 
+    @Value("${config.env}")
+    String env;
+
 	@Autowired
 	ConfigurableApplicationContext configurableApplicationContext;
 
@@ -27,9 +30,13 @@ public class DynamicRefreshConfig {
 	}
 
 
-
 	@RequestMapping("text/config/2")
 	public String method2(){
 	   return appName;
+    }
+
+    @RequestMapping("text/config/3")
+    public String method3(){
+	    return env;
     }
 }

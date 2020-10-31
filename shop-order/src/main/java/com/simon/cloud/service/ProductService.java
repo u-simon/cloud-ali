@@ -6,6 +6,7 @@ import com.simon.cloud.service.fallback.ProductServiceFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author simon
@@ -19,4 +20,7 @@ public interface ProductService {
 
     @RequestMapping("/product/{pid}")
     Product findById(@PathVariable("pid") Integer pid);
+
+    @RequestMapping("/product/reduceInventory")
+    void reduceInventory(@RequestParam("pid") Integer pid,@RequestParam("number") Integer number);
 }

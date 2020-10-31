@@ -16,4 +16,9 @@ public class ProductServiceFallback implements ProductService {
         product.setPid(-100);
         return product;
     }
+
+    @Override
+    public void reduceInventory(Integer pid, Integer number) {
+
+    }
 }

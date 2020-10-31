@@ -6,5 +6,9 @@ spring:
       config:
         server-addr: localhost:8848 #nacos地址
         file-extension: yaml #配置文件格式
+        shared-dataids: common.yaml
+        refreshable-dataids: common.yaml
+  #        group:
+  #        namespace:
   profiles:
-    active: dev
+    active: test

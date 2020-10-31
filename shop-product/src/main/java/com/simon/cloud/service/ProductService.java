@@ -14,4 +14,6 @@ public interface ProductService {
      * @return
      */
     Product findByPid(Integer pid);
+
+    void reduceInventory(Integer pid, Integer number);
 }
